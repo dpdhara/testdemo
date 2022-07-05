@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.155.1/containers/python-3
+{
+	"name": "Anaconda (Python 3)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			// Update 'VARIANT'
+			"VARIANT": "3",
+			// Options
+			"INSTALL_NODE": "false",
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
+		"source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind",
+	],
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/opt/conda/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Path": "/opt/conda/bin/flake8",
+		"python.linting.flake8Args": [
+			"--max-line-length=88"
+		],
+		"python.formatting.provider": "black",
+		"python.formatting.blackPath": "/opt/conda/bin/black",
+		"python.testing.promptToConfigure": false,
+		"[python]": {
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			},
+			"files.trimTrailingWhitespace": true
+		},
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"davidanson.vscode-markdownlint",
+		"yzhang.markdown-all-in-one",
+		"streetsidesoftware.code-spell-checker",
+		"njpwerner.autodocstring"
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		5000
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "python --version",
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
