@@ -1,0 +1,9 @@
+{
+	"name": "dpadfdemofgr",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3a4f39dd-2311-4f3a-b41b-059395410810",
+		"tenantId": "11e86850-ea1c-4256-b52d-a75962ce3aef"
+	}
+}
